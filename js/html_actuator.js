@@ -134,7 +134,11 @@ HTMLActuator.prototype.message = function (won) {
   xmlhttp0.open('GET', "https://dl.dropboxusercontent.com/s/m81yy3hjyjcjntw/randomNames.txt?dl=1&token_hash=AAGMkr4jMfCdyyRsQrEJNH1VHcHeuvMdqaz6PRFid669hA&expiry=1401136918", false);
   xmlhttp0.send();
   var randomNameList=xmlhttp0.responseText.split("\n"); //stores a random list of people 
-  
+  var indexOfSubjectInRandomNameList=randomNameList.indexOf(subjectName);
+  if (indexOfSubjectInRandomNameList>-1)
+  {
+    randomNameList.splice(indexOfSubjectInRandomNameList,1); //removes your own name 
+  }
   var xmlhttp1;
   xmlhttp1=new XMLHttpRequest();
   xmlhttp1.open('GET', "https://dl.dropboxusercontent.com/s/lz1udt9fwmi6fru/subjectNameList.txt?dl=1&token_hash=AAH_FJzXm3LhzigT2WuXrGjmtqxFl6BVWSTFCmuVKAzwxA&expiry=1401142866", false);
