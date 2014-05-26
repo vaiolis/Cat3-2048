@@ -125,13 +125,18 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var gameOverMessage= "Game Over"+"\n"+"Friend Scores";
+  var gameOverMessage= "Game Over"+"\n"+"Friend Scores\n";
   
   var xmlhttp;
   xmlhttp=new XMLHttpRequest();
-  xmlhttp.open('GET', "text.txt", false);
+  xmlhttp.open('GET', "https://dl.dropboxusercontent.com/s/jlm5acysejwgc3g/test-2.txt?dl=1&token_hash=AAFA1jAxnIZ0cXoMWaGgSC_JqD1hji_QOUPswdWCaX2z5w&expiry=1401090615", false);
   xmlhttp.send();
   
+  var bigStringSplit=xmlhttp.responseText.split("~");
+ for (var i = 0; i < bigStringSplit.length; i++) { 
+    gameOverMessage += "\n";
+    gameOverMessage += bigStringSplit[i];
+}
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : gameOverMessage;
 
