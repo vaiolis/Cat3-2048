@@ -125,7 +125,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var gameOverMessage= "Game Over"+"\n"+"fuck you";
+  var gameOverMessage= "Game Over"+"\n"+"Friend Scores";
   
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : gameOverMessage;
