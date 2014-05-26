@@ -131,7 +131,7 @@ HTMLActuator.prototype.message = function (won) {
   xmlhttp=new XMLHttpRequest();
   xmlhttp.open('GET', "text.txt", false);
   xmlhttp.send();
-  gameOverMessage+=xmlhttp.responseText;
+  
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : gameOverMessage;
 
