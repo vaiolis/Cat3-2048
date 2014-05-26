@@ -176,11 +176,11 @@ hr {
       font-size: 30px;
       font-weight: bold;
       height: 20px;
-      line-height: 20px;
+      line-height: 30px;
       margin-top: -20px; }
     .game-container .game-message .lower {
       display: block;
-      margin-top: 190px; }
+      margin-top: 210px; }
     .game-container .game-message a {
       display: inline-block;
       background: #8f7a66;
