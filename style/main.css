@@ -749,9 +749,9 @@ hr {
     font-size: 35px; }
 
   .game-message p {
-    font-size: 20px !important;
-    height: 20px !important;
-    line-height: 20px !important;
+    font-size: 25px !important;
+    height: 25px !important;
+    line-height: 25px !important;
     margin-top: 0px !important; }
   .game-message .lower {
-    margin-top: 250px !important; } }
+    margin-top: 220px !important; } }
