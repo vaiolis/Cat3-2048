@@ -197,6 +197,7 @@ hr {
     @media screen and (orientation:portrait)
     {
       .game-container .game-message p {
+      display:block
       font-size: 10px;
       font-weight: bold;
       height: 20px;
