@@ -159,7 +159,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var gameOverMessage= "Game Over"+String.fromCharCode(13)+String.fromCharCode(13)+"Recent Scores";
+  var gameOverMessage= "Game Over"+String.fromCharCode(13)+String.fromCharCode(13)+"Recent Scores"+String.fromCharCode(13);
   
  
   
