@@ -172,6 +172,8 @@ hr {
     -webkit-animation-fill-mode: both;
     -moz-animation-fill-mode: both;
     animation-fill-mode: both; }
+    @media screen and (orientation:landscape)
+    {
     .game-container .game-message p {
       font-size: 30px;
       font-weight: bold;
@@ -191,6 +193,29 @@ hr {
       height: 40px;
       line-height: 42px;
       margin-left: 9px; }
+    }
+    @media screen and (orientation:portrait)
+    {
+      .game-container .game-message p {
+      font-size: 30px;
+      font-weight: bold;
+      height: 20px;
+      line-height: 30px;
+      margin-top: -50px; }
+    .game-container .game-message .lower {
+      display: block;
+      margin-top: 100px; }
+    .game-container .game-message a {
+      display: inline-block;
+      background: #8f7a66;
+      border-radius: 3px;
+      padding: 0 20px;
+      text-decoration: none;
+      color: #f9f6f2;
+      height: 40px;
+      line-height: 42px;
+      margin-left: 9px; }
+    }
       .game-container .game-message a.keep-playing-button {
         display: none; }
     .game-container .game-message.game-won {
