@@ -1,4 +1,4 @@
- var subjectName="Mingyi Chen" //temp subject- will need to get this from user input at the beginning of game
+ var subjectName=prompt("Please enter your name",""); //temp subject- will need to get this from user input at the beginning of game
   
   var xmlhttp0;
   xmlhttp0=new XMLHttpRequest();
