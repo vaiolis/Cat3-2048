@@ -381,9 +381,9 @@ hr {
       .tile.tile-super .tile-inner {
         } }
 
-  /* hide text */
+  /* to hide text set font-size to 0 */
   .tile .tile-inner {
-    font-size: 0px;
+    font-size: 50px;
   }
 
   /* background images */
