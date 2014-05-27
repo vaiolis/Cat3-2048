@@ -177,10 +177,10 @@ hr {
       font-weight: bold;
       height: 20px;
       line-height: 30px;
-      margin-top: -20px; }
+      margin-top: 0px; }
     .game-container .game-message .lower {
       display: block;
-      margin-top: 210px; }
+      margin-top: 260px; }
     .game-container .game-message a {
       display: inline-block;
       background: #8f7a66;
