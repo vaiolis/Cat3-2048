@@ -1,10 +1,44 @@
+ var subjectName="Mingyi Chen" //temp subject- will need to get this from user input at the beginning of game
+  
+  var xmlhttp0;
+  xmlhttp0=new XMLHttpRequest();
+  xmlhttp0.open('GET', "https://dl.dropboxusercontent.com/s/m81yy3hjyjcjntw/randomNames.txt?dl=1&token_hash=AAGMkr4jMfCdyyRsQrEJNH1VHcHeuvMdqaz6PRFid669hA&expiry=1401136918", false);
+  xmlhttp0.send();
+  var randomNameList=xmlhttp0.responseText.split("\n"); //stores a random list of people 
+  var indexOfSubjectInRandomNameList=randomNameList.indexOf(subjectName);
+  if (indexOfSubjectInRandomNameList>-1)
+  {
+    randomNameList.splice(indexOfSubjectInRandomNameList,1); //removes your own name 
+  }
+  var xmlhttp1;
+  xmlhttp1=new XMLHttpRequest();
+  xmlhttp1.open('GET', "https://dl.dropboxusercontent.com/s/lz1udt9fwmi6fru/subjectNameList.txt?dl=1&token_hash=AAH_FJzXm3LhzigT2WuXrGjmtqxFl6BVWSTFCmuVKAzwxA&expiry=1401142866", false);
+  xmlhttp1.send();
+  var subjectNameList=xmlhttp1.responseText.split("\n"); //a list of subjects involved in test
+  var indexOfSubject=subjectNameList.indexOf(subjectName); //get index of subject 
+  
+  var xmlhttp2;
+  xmlhttp2=new XMLHttpRequest();
+  xmlhttp2.open('GET', "https://dl.dropboxusercontent.com/s/lnw78htd9dacchn/firstDegreeArray.txt?dl=1&token_hash=AAGUgvM5gz8qgdSchSw6b7zpiLNomqlBLLQbQlDmi9qjMA&expiry=1401143028", false);
+  xmlhttp2.send();
+  var firstDegreeArray=xmlhttp2.responseText.split("\n"); //big 2D array of every subject's firstDegree connections
+  var subjectFirstDegreeArray=firstDegreeArray[indexOfSubject].split("~"); 
+  
+  var xmlhttp3;
+  xmlhttp3=new XMLHttpRequest();
+  xmlhttp3.open('GET', "https://dl.dropboxusercontent.com/s/hyfqi58mabbxocq/secondDegreeArray.txt?dl=1&token_hash=AAEAQHz0XLvhH_j3aCe2CzxHydRvIW8ISsYztwklc15Sng&expiry=1401143263", false);
+  xmlhttp3.send();
+  var secondDegreeArray=xmlhttp3.responseText.split("\n"); 
+  var subjectSecondDegreeArray=secondDegreeArray[indexOfSubject].split("~");
+
+
+
 function HTMLActuator() {
   this.tileContainer    = document.querySelector(".tile-container");
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
-
-  this.score = 0;
+  
 }
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
@@ -125,40 +159,9 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 };
 
 HTMLActuator.prototype.message = function (won) {
-  var gameOverMessage= "Game Over"+"\n\n"+"Recent Scores";
+  var gameOverMessage= "Game Over"+String.fromCharCode(13)+String.fromCharCode(13)+"Recent Scores";
   
-  var subjectName="Mingyi Chen" //temp subject- will need to get this from user input at the beginning of game
-  
-  var xmlhttp0;
-  xmlhttp0=new XMLHttpRequest();
-  xmlhttp0.open('GET', "https://dl.dropboxusercontent.com/s/m81yy3hjyjcjntw/randomNames.txt?dl=1&token_hash=AAGMkr4jMfCdyyRsQrEJNH1VHcHeuvMdqaz6PRFid669hA&expiry=1401136918", false);
-  xmlhttp0.send();
-  var randomNameList=xmlhttp0.responseText.split("\n"); //stores a random list of people 
-  var indexOfSubjectInRandomNameList=randomNameList.indexOf(subjectName);
-  if (indexOfSubjectInRandomNameList>-1)
-  {
-    randomNameList.splice(indexOfSubjectInRandomNameList,1); //removes your own name 
-  }
-  var xmlhttp1;
-  xmlhttp1=new XMLHttpRequest();
-  xmlhttp1.open('GET', "https://dl.dropboxusercontent.com/s/lz1udt9fwmi6fru/subjectNameList.txt?dl=1&token_hash=AAH_FJzXm3LhzigT2WuXrGjmtqxFl6BVWSTFCmuVKAzwxA&expiry=1401142866", false);
-  xmlhttp1.send();
-  var subjectNameList=xmlhttp1.responseText.split("\n"); //a list of subjects involved in test
-  var indexOfSubject=subjectNameList.indexOf(subjectName); //get index of subject 
-  
-  var xmlhttp2;
-  xmlhttp2=new XMLHttpRequest();
-  xmlhttp2.open('GET', "https://dl.dropboxusercontent.com/s/lnw78htd9dacchn/firstDegreeArray.txt?dl=1&token_hash=AAGUgvM5gz8qgdSchSw6b7zpiLNomqlBLLQbQlDmi9qjMA&expiry=1401143028", false);
-  xmlhttp2.send();
-  var firstDegreeArray=xmlhttp2.responseText.split("\n"); //big 2D array of every subject's firstDegree connections
-  var subjectFirstDegreeArray=firstDegreeArray[indexOfSubject].split("~"); 
-  
-  var xmlhttp3;
-  xmlhttp3=new XMLHttpRequest();
-  xmlhttp3.open('GET', "https://dl.dropboxusercontent.com/s/hyfqi58mabbxocq/secondDegreeArray.txt?dl=1&token_hash=AAEAQHz0XLvhH_j3aCe2CzxHydRvIW8ISsYztwklc15Sng&expiry=1401143263", false);
-  xmlhttp3.send();
-  var secondDegreeArray=xmlhttp3.responseText.split("\n"); 
-  var subjectSecondDegreeArray=secondDegreeArray[indexOfSubject].split("~");
+ 
   
   var randomNameListLength=randomNameList.length; 
   var random1=Math.random(); // <0.5 first degree has lower scores, otherwise lower scores
@@ -203,7 +206,7 @@ HTMLActuator.prototype.message = function (won) {
 { 
   var randomNameIndex=~~(Math.random()*randomNameListLength);
   var selectedRandomName=randomNameList[randomNameIndex];
-  var nameAndScore=("\n"+selectedRandomName);
+  var nameAndScore=(String.fromCharCode(13)+selectedRandomName);
   if(subjectFirstDegreeArray.indexOf(selectedRandomName)>-1) //check if the selected name is first degree
   {
     if(firstDegreeHigherScore==true)
@@ -242,11 +245,14 @@ HTMLActuator.prototype.message = function (won) {
   }
   gameOverMessage+=nameAndScore;
 }
+
+
   var type    = won ? "game-won" : "game-over";
   var message = won ? "You win!" : gameOverMessage;
+  
 
   this.messageContainer.classList.add(type);
-  this.messageContainer.getElementsByTagName("p")[0].textContent = message;
+  this.messageContainer.getElementsByTagName("p")[0].innerText = message;
 };
 
 HTMLActuator.prototype.clearMessage = function () {
@@ -254,3 +260,4 @@ HTMLActuator.prototype.clearMessage = function () {
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
 };
+
