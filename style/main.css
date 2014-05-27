@@ -751,7 +751,7 @@ hr {
   .game-message p {
     font-size: 15px !important;
     height: 15px !important;
-    line-height: 30px !important;
-    margin-top: 30px !important; }
+    line-height: 15px !important;
+    margin-top: 0px !important; }
   .game-message .lower {
-    margin-top: 90px !important; } }
+    margin-top: 150px !important; } }
