@@ -170,7 +170,7 @@ HTMLActuator.prototype.message = function (won) {
   var firstDegreeHigherScore;
   var secondDegreeHigherScore;
   var strangerHigherScore; 
-  if(random1<0.5)
+  if(random1<0.1)
   {
       firstDegreeHigherScore=false; //record in final data recording 
   }
@@ -179,7 +179,7 @@ HTMLActuator.prototype.message = function (won) {
       firstDegreeHigherScore=true; //record in final data recording
   }
   
-  if(random2<0.5)
+  if(random2<0.1)
   {
     secondDegreeHigherScore=false; //Record in final data recording
   }
@@ -188,7 +188,7 @@ HTMLActuator.prototype.message = function (won) {
     secondDegreeHigherScore=true; //Record in final data recording
   }
   
-  if(random3<0.5)
+  if(random3<0.1)
   {
     strangerHigherScore=false; //Record in final data recording
   }
