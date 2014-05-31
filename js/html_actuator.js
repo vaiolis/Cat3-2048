@@ -1,4 +1,4 @@
-subjectName=prompt("Please enter your name",""); 
+var subjectName=prompt("Please enter your name",""); 
 //temp subject- will need to get this from user input at the beginning of game
   
   var xmlhttp0;
@@ -104,11 +104,11 @@ var index1=0;
   }
   
   index1=index1+secondDegreeCount+1;
- indexOfSubject+=2;
   
+  var newIndexOfSubject=indexOfSubject+2;
    var xmlhttp4;
   xmlhttp4=new XMLHttpRequest();
-  xmlhttp4.open('POST', "http://128.54.186.34:1337/?row="+indexOfSubject+"&col="+index1, true);
+  xmlhttp4.open('POST', "http://128.54.186.34:1337/?row="+newIndexOfSubject+"&col="+index1, true);
   xmlhttp4.send();
   firstDegreeCount=0;
   secondDegreeCount=0;
