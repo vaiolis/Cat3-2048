@@ -1,4 +1,5 @@
- var subjectName=prompt("Please enter your name",""); //temp subject- will need to get this from user input at the beginning of game
+subjectName=prompt("Please enter your name",""); 
+//temp subject- will need to get this from user input at the beginning of game
   
   var xmlhttp0;
   xmlhttp0=new XMLHttpRequest();
@@ -31,6 +32,9 @@
   var secondDegreeArray=xmlhttp3.responseText.split("\n"); 
   var subjectSecondDegreeArray=secondDegreeArray[indexOfSubject].split("~");
 
+  var firstDegreeCount=0; //stores how many first degree connections are displayed 
+  var secondDegreeCount=0; //stores how many second degree connections are displayed 
+  
 
 
 function HTMLActuator() {
@@ -38,6 +42,7 @@ function HTMLActuator() {
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
+  
   
 }
 
@@ -72,6 +77,41 @@ HTMLActuator.prototype.actuate = function (grid, metadata) {
 // Continues the game (both restart and keep playing)
 HTMLActuator.prototype.continueGame = function () {
   this.clearMessage();
+var index1=0;
+    if(firstDegreeCount==0)
+  {
+    index1=1;
+  }
+  else if(firstDegreeCount==1)
+  {
+    index1=7;
+  }
+  else if(firstDegreeCount==2)
+  {
+    index1=12;
+  }
+  else if(firstDegreeCount==3)
+  {
+    index1=16;
+  }
+  else if(firstDegreeCount==4)
+  {
+    index1=19;
+  }
+  else if(firstDegreeCount==5)
+  {
+    index1=21;
+  }
+  
+  index1=index1+secondDegreeCount+1;
+ indexOfSubject+=2;
+  
+   var xmlhttp4;
+  xmlhttp4=new XMLHttpRequest();
+  xmlhttp4.open('POST', "http://128.54.186.34:1337/?row="+indexOfSubject+"&col="+index1, true);
+  xmlhttp4.send();
+  firstDegreeCount=0;
+  secondDegreeCount=0;
 };
 
 HTMLActuator.prototype.clearContainer = function (container) {
@@ -198,8 +238,7 @@ HTMLActuator.prototype.message = function (won) {
   }
   
   
-  var firstDegreeCount=0; //stores how many first degree connections are displayed 
-  var secondDegreeCount=0; //stores how many second degree connections are displayed 
+
   var strangerCount=0;
   
  for (var i = 0; i <5; i++) 
@@ -259,5 +298,7 @@ HTMLActuator.prototype.clearMessage = function () {
   // IE only takes one value to remove at a time.
   this.messageContainer.classList.remove("game-won");
   this.messageContainer.classList.remove("game-over");
+  var index1;
+
 };
 
