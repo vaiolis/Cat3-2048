@@ -240,9 +240,52 @@ HTMLActuator.prototype.message = function (won) {
   
 
   var strangerCount=0;
-  
+  var firstDegreeLength=subjectFirstDegreeArray.length;
+  var secondDegreeLength=subjectSecondDegreeArray.length;
  for (var i = 0; i <5; i++) 
 { 
+  var random4=Math.random();
+  if(random4>0.67)
+  {
+    var selectedNameIndex=~~(Math.random()*firstDegreeLength);
+    var selectedName=subjectFirstDegreeArray[selectedNameIndex];
+    var nameAndScore=(String.fromCharCode(13)+selectedName);
+    
+    if(firstDegreeHigherScore==true)
+    {
+      nameAndScore+=(" "+(this.score+(~~(Math.random()*(this.score)))));
+    }
+    else
+    {
+      nameAndScore+=(" "+(this.score-(~~(Math.random()*(this.score)*0.8))));
+    }
+    
+    firstDegreeCount++;
+    
+    gameOverMessage+=nameAndScore;
+  }
+
+  else if(random4< 0.33)
+  {
+    var selectedNameIndex=~~(Math.random()*secondDegreeLength);
+    var selectedName=subjectSecondDegreeArray[selectedNameIndex];
+    var nameAndScore=(String.fromCharCode(13)+selectedName);
+    
+    if(secondDegreeHigherScore==true)
+    {
+      nameAndScore+=(" "+(this.score+(~~(Math.random()*(this.score)))));
+    }
+    else
+    {
+      nameAndScore+=(" "+(this.score-(~~(Math.random()*(this.score)*0.8))));
+    }
+    
+    secondDegreeCount++;
+    
+    gameOverMessage+=nameAndScore;
+  }
+  else
+  {
   var randomNameIndex=~~(Math.random()*randomNameListLength);
   var selectedRandomName=randomNameList[randomNameIndex];
   var nameAndScore=(String.fromCharCode(13)+selectedRandomName);
@@ -282,7 +325,9 @@ HTMLActuator.prototype.message = function (won) {
     } 
     strangerCount++;
   }
-  gameOverMessage+=nameAndScore;
+    gameOverMessage+=nameAndScore;
+  }
+
 }
 
 
