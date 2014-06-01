@@ -200,7 +200,7 @@ HTMLActuator.prototype.updateBestScore = function (bestScore) {
 
 HTMLActuator.prototype.message = function (won) {
   var gameOverMessage= "Game Over"+String.fromCharCode(13)+String.fromCharCode(13)+"Recent Scores"+String.fromCharCode(13);
-  
+  var gameWinMessage= "You Win!"+String.fromCharCode(13)+String.fromCharCode(13)+"Recent Scores"+String.fromCharCode(13);
  
   
   var randomNameListLength=randomNameList.length; 
@@ -263,6 +263,7 @@ HTMLActuator.prototype.message = function (won) {
     firstDegreeCount++;
     
     gameOverMessage+=nameAndScore;
+    gameWinMessage+=nameAndScore;
   }
 
   else if(random4< 0.33)
@@ -283,6 +284,7 @@ HTMLActuator.prototype.message = function (won) {
     secondDegreeCount++;
     
     gameOverMessage+=nameAndScore;
+    gameWinMessage+=nameAndScore;
   }
   else
   {
@@ -326,13 +328,14 @@ HTMLActuator.prototype.message = function (won) {
     strangerCount++;
   }
     gameOverMessage+=nameAndScore;
+    gameWinMessage+=nameAndScore;
   }
 
 }
 
 
   var type    = won ? "game-won" : "game-over";
-  var message = won ? "You win!" : gameOverMessage;
+  var message = won ? gameWinMessage : gameOverMessage;
   
 
   this.messageContainer.classList.add(type);
