@@ -1,19 +1,16 @@
 var Spreadsheet = require('edit-google-spreadsheet');
 
 
-
-
-  Spreadsheet.load({
+   
+Spreadsheet.load({
   debug: true,
   username: 'mingyichen95@gmail.com',
   password: 'myc95410',
-  spreadsheetName: 'Cat Data',
+ spreadsheetId: '0AlauiLYq1wd-dFZyZC1RVVdsMmh1UW5QT2RHSG9yRXc',
   worksheetName: 'Sheet1'
-  // spreadsheetId: 'tI1mkRABSRt3tQX3b-CRPbw',
-  // worksheetId: 'od6'
- 
-}, function run(err, spreadsheet) {
-  if(err) throw err;
+}, 
+function run(err, spreadsheet) {
+ if(err) throw err;
 
 
 
@@ -38,10 +35,11 @@ var Spreadsheet = require('edit-google-spreadsheet');
     if(err) throw err;
 
 //       console.log("Found rows:", );
-    console.log("got file");
-  });
+//    console.log("got file");
+//  });
   
 
   
+});
 });
 

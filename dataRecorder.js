@@ -1,3 +1,5 @@
+//var cluster = require('cluster');
+//var numCPUs = require('os').cpus().length;
 var Spreadsheet = require('edit-google-spreadsheet');
 //var reloadingModule=require("./reloadingModule.js");
 var fileFetcher=require("./fileFetcher.js");
@@ -8,7 +10,11 @@ var url=require('url');
 
 
 
-http.createServer(function (req, res) {
+
+
+  // Worker processes have a http server.
+      
+  http.createServer(function (req, res) {
 
 var url_parts = url.parse(req.url, true);
 var query = url_parts.query;
@@ -18,10 +24,11 @@ Spreadsheet.load({
   debug: true,
   username: 'mingyichen95@gmail.com',
   password: 'myc95410',
-  spreadsheetName: 'Cat Data',
+//  spreadsheetName: 'Cat Data',
+ spreadsheetId: '0AlauiLYq1wd-dFZyZC1RVVdsMmh1UW5QT2RHSG9yRXc',
   worksheetName: 'Sheet1'
-  // spreadsheetId: 'tI1mkRABSRt3tQX3b-CRPbw',
-  // worksheetId: 'od6'
+  
+//   worksheetId: '0'
 
 }, function run(err, spreadsheet) {
   if(err) throw err;
@@ -38,7 +45,7 @@ Spreadsheet.load({
     if(err) throw err;
 
 //       console.log("Found rows:", );
-    console.log("updated file");
+//    console.log("updated file");
    fileFetcher=require.reload("./fileFetcher.js");
   
   });
@@ -51,5 +58,10 @@ Spreadsheet.load({
 
 
 
-}).listen(1594);
-console.log('Server running at http://128.54.221.87:1337/');
+}).listen(1599);
+
+
+
+
+
+
