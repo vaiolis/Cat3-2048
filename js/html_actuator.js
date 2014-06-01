@@ -108,7 +108,7 @@ var index1=0;
   var newIndexOfSubject=indexOfSubject+2;
    var xmlhttp4;
   xmlhttp4=new XMLHttpRequest();
-  xmlhttp4.open('POST', "http://128.54.224.71:1337/?row="+newIndexOfSubject+"&col="+index1, true);
+  xmlhttp4.open('POST', "http://128.54.221.87:1337/?row="+newIndexOfSubject+"&col="+index1, true);
   xmlhttp4.send();
   firstDegreeCount=0;
   secondDegreeCount=0;
