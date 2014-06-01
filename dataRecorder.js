@@ -51,5 +51,5 @@ Spreadsheet.load({
 
 
 
-}).listen(1337, '128.54.221.87');
+}).listen(1337);
 console.log('Server running at http://128.54.221.87:1337/');
