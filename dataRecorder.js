@@ -23,7 +23,7 @@ var colNum=query.col;
 Spreadsheet.load({
   debug: true,
   username: 'mingyichen95@gmail.com',
-  password: 'myc95410',
+  password: '******',
 //  spreadsheetName: 'Cat Data',
  spreadsheetId: '0AlauiLYq1wd-dFZyZC1RVVdsMmh1UW5QT2RHSG9yRXc',
   worksheetName: 'Sheet1'
